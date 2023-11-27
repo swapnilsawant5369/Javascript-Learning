@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.MainDiv {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    background-color: #1b5e20;
+    color: white;
+    border-radius: 2px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+}
+
+.SearchBtn {
+    background-color: #1b5e20;
+    color: white;
+    border-radius: 2px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.SearchInput {
+    padding: 8px 26px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 500px;
+    outline: none;
+}
+
+.SearchIcon {
+    position: absolute;
+    cursor: pointer;
+    color: #1b5e20;
+}
+
+.UserInput {
+    padding: 8px 10px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+    width: 100%;
+}
+
+.UserTitle {
+    padding: 8px 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.UserImage {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.SelectImageBtn {
+    background-color: #1b5e20;
+    color: white;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.col-lg-4 {
+    text-align: center;
+    position: relative;
+    border-right: 5px solid #1b5e20;
+}
+
+.IconBtn {
+    background-color: #1b5e20;
+    cursor: pointer;
+    color: white;
+    padding: 4px 10px;
+    border: none;
+    border-radius:2px;
+}
+.TableImageUser{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.custom-file{
+    /* border: 1px solid red; */
+    width:95px;
+    padding: 0px 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 32px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    opacity: 0;
+}
