@@ -8,6 +8,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./Enploy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Employes Details Feels...</title>
 </head>
 
@@ -28,7 +29,6 @@
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content bg-light">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Add User Details</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -36,39 +36,52 @@
                         <div class="modal-body">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <img src="../../../Images/Max-Man.jpg" class="UserImage" alt="UserImage">
-                                        <div>
-                                            <button class="SelectImageBtn" id="uplodeimg">Select Image</button>
+                                    <div class="col-lg-4 BorderLeft">
+                                        <img src="./Images/Office-Man.jpeg" class="UserImage" id="SrcImage_Show">
+                                        <div style="position: relative;">
+                                            <button class="SelectImageBtn" id="ImageSelect_Btn">Select Image</button>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                                              </div>
+                                                <input type="file" class="custom-file-input" id="SelectImg_Input"
+                                                    lang="es">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <h6 class="UserTitle">id</h6>
-                                        <h6 class="UserTitle">First Name</h6>
-                                        <h6 class="UserTitle">Last Name</h6>
-                                        <h6 class="UserTitle">E-mail</h6>
-                                        <h6 class="UserTitle">Phone No</h6>
-                                        <h6 class="UserTitle">Job Title</h6>
-                                        <h6 class="UserTitle">Job Location</h6>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" id="id" class="UserInput bg-light">
-                                        <input type="text" id="firstname" class="UserInput bg-light">
-                                        <input type="text" id="lastname" class="UserInput bg-light">
-                                        <input type="email" id="email" class="UserInput bg-light">
-                                        <input type="text" id="phoneno" class="UserInput bg-light">
-                                        <input type="text" id="jobtitle" class="UserInput bg-light">
-                                        <input type="text" id="joblocation" class="UserInput bg-light">
+                                    <div class="col-lg-8">
+                                        <form id="Form_Data">
+                                            <div class="container">
+                                                <dig class="row">
+                                                    <div class="col-lg-4">
+                                                        <h6 class="UserTitle">id</h6>
+                                                        <h6 class="UserTitle">First Name</h6>
+                                                        <h6 class="UserTitle">Last Name</h6>
+                                                        <h6 class="UserTitle">E-mail</h6>
+                                                        <h6 class="UserTitle">Phone No</h6>
+                                                        <h6 class="UserTitle">Job Title</h6>
+                                                        <h6 class="UserTitle">Job Location</h6>
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" id="User_ID" class="UserInput bg-light">
+                                                        <input type="text" id="User_Fname" class="UserInput bg-light">
+                                                        <input type="text" id="User_Lname" class="UserInput bg-light">
+                                                        <input type="email" id="User_Email" class="UserInput bg-light">
+                                                        <input type="text" id="User_PhoneNo" class="UserInput bg-light">
+                                                        <input type="text" id="User_JobTitle"
+                                                            class="UserInput bg-light">
+                                                        <input type="text" id="User_JobLocation"
+                                                            class="UserInput bg-light">
+                                                    </div>
+                                                </dig>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn"id='registerbtn' data-dismiss="modal">Register</button>
-                            <button type="button" class="btn" disabled>Update</button>
+                            <button type="button" class="btn" id='Data_AddRegisterBtn'
+                                data-dismiss="modal">Register</button>
+                            <button type="button" class="btn" id="Update_RegisterBtn" disabled>Update</button>
+                            <div class="spinner-border"></div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +89,7 @@
         </span>
         <span style="align-items: center; display: flex; position: relative;">
             <i class="fa fa-search SearchIcon" aria-hidden="true"></i>
-            <input type="search" id="search" class="SearchInput" placeholder="Search here...">
+            <input type="search" id="Employe_Search" class="SearchInput" placeholder="Search here...">
             <button class="SearchBtn" id="search">Search</button>
         </span>
     </div>
@@ -98,22 +111,7 @@
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td><img src="../../../Images//Max-Man.jpg" alt="UserImage" class="TableImageUser"></td>
-                            <td>123456</td>
-                            <td>Sagar</td>
-                            <td>Rote</td>
-                            <td><a href="#/">SagarRote1234@gmail.com</a></td>
-                            <td>9299564367</td>
-                            <td>UI Developer</td>
-                            <td>Pune</td>
-                            <td>
-                                <button class="IconBtn"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                <button class="IconBtn"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
+                    <tbody id="TableBody_Data">
                     </tbody>
                 </table>
             </div>
@@ -128,7 +126,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script src="./Employ.js"></script>
+    <script src="./Employ.js"></script>
 </body>
 
 </html>
